@@ -54,9 +54,11 @@ It interprets any non-zero status code as C<not running>.
 
 =item B<new($init_script_name)>
 
-If C<$init_script_name> contains C</>, it will be interpreted as the filename.
+If C<$init_script_name> contains C</>, it'll be interpreted as a filename.
 
 Otherwise, C</etc/init.d/$init_script_name> will be used.
+
+=back
 
 =cut
 
