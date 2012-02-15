@@ -6,8 +6,7 @@ package Ubic::Service::InitScriptWrapper;
 
     # in /etc/ubic/service/my-nginx
     use Ubic::Service::InitScriptWrapper;
-    # map /etc/init.d/nginx to 'my-nginx' ubic service
-    Ubic::Service::InitScriptWrapper->new('nginx');
+    Ubic::Service::InitScriptWrapper->new('nginx'); # map /etc/init.d/nginx to 'my-nginx' ubic service
 
 =head1 DESCRIPTION
 
@@ -23,9 +22,9 @@ There are several reasons why this module can be useful.
 First, it allows you to use all ubic features (watchdog, pretty CLI interface,
 persistent service states) without changing any of your code.
 
-Second, some daemons don't provide the way not to detach them from a terminal.
+Second, some daemons don't provide a way not to detach them from a terminal.
 Classic init scripts usually use C<start-stop-daemon> to start these daemons.
-C<Ubic::Daemon> and C<Ubic::Service::SimpleDaemon> can't be used to start these
+C<Ubic::Daemon> and C<Ubic::Service::SimpleDaemon> can't be used to start such
 processes.
 You could write C<system('start-stop-daemon ...')> in your ubic service code,
 but if you already got a working init script, why bother?
@@ -39,8 +38,8 @@ but if you already got a working init script, why bother?
 Init script must conform to LSB specification
 (L<http://refspecs.linuxbase.org/LSB_4.0.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html>).
 
-At the very least, it must exit with 0 code on successful start and stop and
-status commands, and with non-zero code on unsuccessful status command.
+At the very least, it must exit with zero exit code on successful start, stop
+and status commands, and with non-zero exit code on unsuccessful status command.
 
 =item *
 
